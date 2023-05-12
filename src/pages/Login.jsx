@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addEmail } from '../redux/actions';
+import { addEmail, fetchCoins } from '../redux/actions';
 
 class Login extends React.Component {
   state = {
@@ -28,6 +28,7 @@ class Login extends React.Component {
     const { history, dispatch } = this.props;
     const { email } = this.state;
     dispatch(addEmail(email));
+    dispatch(fetchCoins());
     history.push('/carteira');
   };
 
@@ -40,6 +41,7 @@ class Login extends React.Component {
           data-testid="email-input"
           name="email"
           type="email"
+          placeholder="Digite seu e-mail"
           onChange={ this.onInputChange }
         />
 
@@ -47,6 +49,7 @@ class Login extends React.Component {
           data-testid="password-input"
           name="password"
           type="password"
+          placeholder="Digite sua senha"
           onChange={ this.onInputChange }
         />
         <button onClick={ this.submitLogin } disabled={ isDisable }>Entrar</button>
