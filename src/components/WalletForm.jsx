@@ -1,51 +1,86 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { addExpenses } from '../redux/actions';
 
 class WalletForm extends Component {
-/*   state = {
-    expense: '',
+  state = {
+    value: '',
     description: '',
-    coin: 'USD',
+    currency: 'USD',
     method: 'Dinheiro',
-    category: 'Alimentação',
-  }; */
+    tag: 'Alimentação',
+  };
 
   onInputChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value });
   };
 
+  addExpensesAndClearInputs = () => {
+    const { dispatch } = this.props;
+    this.setState({
+      value: '',
+      description: '',
+      currency: 'USD',
+      method: 'Dinheiro',
+      tag: 'Alimentação',
+    });
+    dispatch(addExpenses(this.state));
+  };
+
   render() {
     const { wallet: { currencies } } = this.props;
+    const { value, description, currency, method, tag } = this.state;
     return (
       <form>
 
-        <label htmlFor="expense">Despesa: </label>
-        <input name="expense" data-testid="value-input" onChange={ this.onInputChange } />
+        <label htmlFor="value">Despesa: </label>
+        <input
+          name="value"
+          data-testid="value-input"
+          onChange={ this.onInputChange }
+          value={ value }
+        />
 
         <label htmlFor="description">Descrição: </label>
         <input
           name="description"
           data-testid="description-input"
           onChange={ this.onInputChange }
+          value={ description }
         />
 
-        <label htmlFor="coin">Moeda: </label>
-        <select name="coin" data-testid="currency-input" onChange={ this.onInputChange }>
+        <label htmlFor="currency">Moeda: </label>
+        <select
+          name="currency"
+          data-testid="currency-input"
+          onChange={ this.onInputChange }
+          value={ currency }
+        >
           {currencies.map((coin) => (
             <option key={ coin } value={ coin }>{ coin }</option>
           ))}
         </select>
 
         <label htmlFor="method">Método de pagamento: </label>
-        <select name="method" data-testid="method-input" onChange={ this.onInputChange }>
+        <select
+          name="method"
+          data-testid="method-input"
+          onChange={ this.onInputChange }
+          value={ method }
+        >
           <option value="Dinheiro">Dinheiro</option>
           <option value="Cartão de crédito">Cartão de crédito</option>
           <option value="Cartão de débito">Cartão de débito</option>
         </select>
 
-        <label htmlFor="category">Categoria: </label>
-        <select name="category" data-testid="tag-input" onChange={ this.onInputChange }>
+        <label htmlFor="tag">Categoria: </label>
+        <select
+          name="tag"
+          data-testid="tag-input"
+          onChange={ this.onInputChange }
+          value={ tag }
+        >
           <option value="Alimentação">Alimentação</option>
           <option value="Lazer">Lazer</option>
           <option value="Trabalho">Trabalho</option>
@@ -53,6 +88,12 @@ class WalletForm extends Component {
           <option value="Saúde">Saúde</option>
         </select>
 
+        <button
+          type="button"
+          onClick={ this.addExpensesAndClearInputs }
+        >
+          Adicionar despesa
+        </button>
       </form>
     );
   }
