@@ -4,6 +4,12 @@ export const RECEIVE_COINS = 'RECEIVE_COINS';
 export const ADD_EXPENSES = 'ADD_EXPENSES';
 export const REQUEST_COINS_EXPENSES = 'REQUEST_COINS_EXPENSES';
 export const RECEIVE_COINS_EXPENSES = 'RECEIVE_COINS_EXPENSES';
+export const DELETE_EXPENSE = 'DELETE_EXPENSE';
+
+export const deleteExpense = (id) => ({
+  type: DELETE_EXPENSE,
+  payload: id,
+});
 
 export const addEmail = (email) => ({
   type: ADD_EMAIL,
