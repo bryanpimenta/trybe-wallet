@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addExpenses } from '../redux/actions';
+import { addExpenses, fetchCoins } from '../redux/actions';
 
 class WalletForm extends Component {
   state = {
@@ -11,6 +11,11 @@ class WalletForm extends Component {
     method: 'Dinheiro',
     tag: 'Alimentação',
   };
+
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(fetchCoins());
+  }
 
   onInputChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value });
