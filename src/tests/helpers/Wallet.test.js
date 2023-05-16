@@ -1,8 +1,11 @@
-import { screen, waitForElementToBeRemoved } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { renderWithRouterAndRedux } from './renderWith';
 import mockData from './mockData';
 import App from '../../App';
+
+const valueTotal = 'total-field';
+const valueInputt = 'value-input';
 
 describe('Testes para a página Wallet', () => {
   const initialEntries = ['/carteira'];
@@ -44,18 +47,18 @@ describe('Testes para a página Wallet', () => {
       },
     };
     renderWithRouterAndRedux(<App />, { initialState, initialEntries });
-    expect(screen.getByTestId('total-field')).toHaveTextContent('166.36');
+    expect(screen.getByTestId(valueTotal)).toHaveTextContent('166.36');
   });
 
   test('Verificar se os elementos da rota aparecem', () => {
     const initialState = { user: { email: 'buraia@teste.com' } };
     renderWithRouterAndRedux(<App />, { initialState, initialEntries });
-    const btnAddExpense = screen.getByRole('button', { name: /adicionar despesa/i, });
+    const btnAddExpense = screen.getByRole('button', { name: /adicionar despesa/i });
 
     expect(screen.getByText(/buraia@teste\.com/i)).toBeInTheDocument();
     expect(screen.getByText(/brl/i)).toBeInTheDocument();
-    expect(screen.getByText("0.00")).toBeInTheDocument();
-    expect(screen.getByTestId('value-input')).toBeInTheDocument();
+    expect(screen.getByText('0.00')).toBeInTheDocument();
+    expect(screen.getByTestId(valueInputt)).toBeInTheDocument();
     expect(screen.getByTestId('description-input')).toBeInTheDocument();
     expect(screen.getByTestId('currency-input')).toBeInTheDocument();
     expect(screen.getByTestId('method-input')).toBeInTheDocument();
@@ -78,14 +81,14 @@ describe('Testes para a página Wallet', () => {
     const btnsEdit = screen.getAllByRole('button', { name: /editar/i });
     userEvent.click(btnsEdit[0]);
 
-    const valueInput = screen.getByTestId('value-input');
+    const valueInput = screen.getByTestId(valueInputt);
     userEvent.type(valueInput, '0');
 
     expect(valueInput).toHaveValue('100');
     const btnFinishedEdit = screen.getByRole('button', { name: /editar despesa/i });
     userEvent.click(btnFinishedEdit);
-    
-    expect(screen.getByTestId('total-field').innerHTML).toBe('594.14');
+
+    expect(screen.getByTestId(valueTotal).innerHTML).toBe('594.14');
     expect(valueInput.innerHTML).toBe('');
   });
 
@@ -101,15 +104,15 @@ describe('Testes para a página Wallet', () => {
     const btnsDelete = screen.getAllByRole('button', {
       name: /excluir/i,
     });
-    
+
     userEvent.click(btnsDelete[0]);
-    expect(screen.getByTestId('total-field').innerHTML).toBe('118.83');
+    expect(screen.getByTestId(valueTotal).innerHTML).toBe('118.83');
   });
 
   test('Verificando se os inputs são limpos ao add despensa', () => {
     renderWithRouterAndRedux(<App />, { initialEntries });
 
-    const valueInput = screen.getByTestId('value-input');
+    const valueInput = screen.getByTestId(valueInputt);
     const descriptionInput = screen.getByTestId('description-input');
     const btnAddExpense = screen.getByRole('button', {
       name: /adicionar despesa/i,

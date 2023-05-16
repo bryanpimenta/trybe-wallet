@@ -12,13 +12,13 @@ export const finishedEditExpense = (state, id) => ({
   type: FINISHED_EDIT_EXPENSE,
   payload: { state, id },
   editor: false,
-})
+});
 
 export const editingExpense = (id) => ({
   type: EDITING_EXPENSE,
   payload: id,
   editor: true,
-})
+});
 
 export const deleteExpense = (id) => ({
   type: DELETE_EXPENSE,

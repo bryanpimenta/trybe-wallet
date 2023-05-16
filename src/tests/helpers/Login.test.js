@@ -36,7 +36,7 @@ describe('Testando o componente `Login`', () => {
     const header = screen.getByText(`Bem vindo, ${email}😃`);
     const expenseValueCurrency = screen.getByTestId('header-currency-field');
     const expenseValueTotal = screen.getByTestId('total-field');
-    const btnAddExpense = screen.getByRole('button', {  name: /adicionar despesa/i})
+    const btnAddExpense = screen.getByRole('button', { name: /adicionar despesa/i });
 
     expect(expense).toBeInTheDocument();
     expect(description).toBeInTheDocument();
@@ -50,7 +50,7 @@ describe('Testando o componente `Login`', () => {
 
     const tableDescription = screen.getByRole('columnheader', { name: /descrição/i });
     const tableTag = screen.getByRole('columnheader', { name: /tag/i });
-    const tableMethod = screen.getByRole('columnheader', { name: /método de pagamento/i })
+    const tableMethod = screen.getByRole('columnheader', { name: /método de pagamento/i });
 
     expect(tableDescription).toBeInTheDocument();
     expect(tableTag).toBeInTheDocument();
