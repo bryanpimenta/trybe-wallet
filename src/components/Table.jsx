@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { deleteExpense } from '../redux/actions';
+import { deleteExpense, editingExpense } from '../redux/actions';
 
 class Table extends Component {
   deleteAExpense = ({ target: { name } }) => {
@@ -9,8 +9,13 @@ class Table extends Component {
     dispatch(deleteExpense(name));
   };
 
+  editExpense = ({ target: { name } }) => {
+    const { dispatch } = this.props;
+    dispatch(editingExpense(name));
+  };
+
   render() {
-    const { expenses } = this.props;
+    const { wallet: { expenses } } = this.props;
     return (
       <table>
         <thead>
@@ -51,6 +56,14 @@ class Table extends Component {
               <td>Real</td>
               <td>
                 <button
+                  data-testid="edit-btn"
+                  type="button"
+                  name={ id }
+                  onClick={ this.editExpense }
+                >
+                  Editar
+                </button>
+                <button
                   data-testid="delete-btn"
                   type="button"
                   name={ id }
@@ -68,7 +81,7 @@ class Table extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  expenses: state.wallet.expenses,
+  wallet: state.wallet,
 });
 
 export default connect(mapStateToProps)(Table);

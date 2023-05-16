@@ -5,6 +5,20 @@ export const ADD_EXPENSES = 'ADD_EXPENSES';
 export const REQUEST_COINS_EXPENSES = 'REQUEST_COINS_EXPENSES';
 export const RECEIVE_COINS_EXPENSES = 'RECEIVE_COINS_EXPENSES';
 export const DELETE_EXPENSE = 'DELETE_EXPENSE';
+export const EDITING_EXPENSE = 'EDITING_EXPENSE';
+export const FINISHED_EDIT_EXPENSE = 'FINISHED_EDIT_EXPENSE';
+
+export const finishedEditExpense = (state, id) => ({
+  type: FINISHED_EDIT_EXPENSE,
+  payload: { state, id },
+  editor: false,
+})
+
+export const editingExpense = (id) => ({
+  type: EDITING_EXPENSE,
+  payload: id,
+  editor: true,
+})
 
 export const deleteExpense = (id) => ({
   type: DELETE_EXPENSE,

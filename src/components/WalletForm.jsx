@@ -1,20 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addExpenses, fetchCoins } from '../redux/actions';
+import { addExpenses, finishedEditExpense, fetchCoins } from '../redux/actions';
+
+const DEFAULT_CURRENCY = 'USD';
+const DEFAULT_METHOD = 'Dinheiro';
+const DEFAULT_TAG = 'Alimentação';
 
 class WalletForm extends Component {
   state = {
     value: '',
     description: '',
-    currency: 'USD',
-    method: 'Dinheiro',
-    tag: 'Alimentação',
+    currency: DEFAULT_CURRENCY,
+    method: DEFAULT_METHOD,
+    tag: DEFAULT_TAG,
+    isEditing: false,
+    id: 0,
+    exchangeRates: '',
   };
 
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(fetchCoins());
+  }
+
+  componentDidUpdate(prevProps) {
+    const { wallet: { editor, idToEdit } } = this.props;
+    const { wallet: { editor: prevEditor, idToEdit: prevIdToEdit } } = prevProps;
+
+    if (editor && (idToEdit !== prevIdToEdit || editor !== prevEditor)) {
+      this.isEditor();
+    }
   }
 
   onInputChange = ({ target: { name, value } }) => {
@@ -26,15 +42,48 @@ class WalletForm extends Component {
     this.setState({
       value: '',
       description: '',
-      currency: 'USD',
-      method: 'Dinheiro',
-      tag: 'Alimentação',
+      currency: DEFAULT_CURRENCY,
+      method: DEFAULT_METHOD,
+      tag: DEFAULT_TAG,
     });
     dispatch(addExpenses(this.state));
   };
 
+  finishedEdit = ({ target: { name } }) => {
+    const { dispatch } = this.props;
+    this.setState({
+      value: '',
+      description: '',
+      currency: DEFAULT_CURRENCY,
+      method: DEFAULT_METHOD,
+      tag: DEFAULT_TAG,
+      isEditing: false,
+      id: 0,
+      exchangeRates: '',
+    });
+    dispatch(finishedEditExpense(this.state, name));
+  };
+
+  isEditor = () => {
+    const { wallet: { expenses, editor, idToEdit } } = this.props;
+    const { isEditing } = this.state;
+    if (editor && !isEditing) {
+      const editingExpense = expenses[idToEdit];
+      this.setState({
+        value: editingExpense.value,
+        description: editingExpense.description,
+        currency: editingExpense.currency,
+        method: editingExpense.method,
+        tag: editingExpense.tag,
+        isEditing: true,
+        id: editingExpense.id,
+        exchangeRates: editingExpense.exchangeRates,
+      });
+    }
+  };
+
   render() {
-    const { wallet: { currencies } } = this.props;
+    const { wallet: { currencies, editor, idToEdit } } = this.props;
     const { value, description, currency, method, tag } = this.state;
     return (
       <form>
@@ -93,12 +142,22 @@ class WalletForm extends Component {
           <option value="Saúde">Saúde</option>
         </select>
 
-        <button
-          type="button"
-          onClick={ this.addExpensesAndClearInputs }
-        >
-          Adicionar despesa
-        </button>
+        { editor ? (
+          <button
+            type="button"
+            name={ idToEdit }
+            onClick={ this.finishedEdit }
+          >
+            Editar despesa
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={ this.addExpensesAndClearInputs }
+          >
+            Adicionar despesa
+          </button>
+        ) }
       </form>
     );
   }
