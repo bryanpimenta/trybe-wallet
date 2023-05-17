@@ -7,17 +7,19 @@ const DEFAULT_CURRENCY = 'USD';
 const DEFAULT_METHOD = 'Dinheiro';
 const DEFAULT_TAG = 'Alimentação';
 
+const initialState = {
+  value: '',
+  description: '',
+  currency: DEFAULT_CURRENCY,
+  method: DEFAULT_METHOD,
+  tag: DEFAULT_TAG,
+  isEditing: false,
+  id: 0,
+  exchangeRates: '',
+};
+
 class WalletForm extends Component {
-  state = {
-    value: '',
-    description: '',
-    currency: DEFAULT_CURRENCY,
-    method: DEFAULT_METHOD,
-    tag: DEFAULT_TAG,
-    isEditing: false,
-    id: 0,
-    exchangeRates: '',
-  };
+  state = { ...initialState };
 
   componentDidMount() {
     const { dispatch } = this.props;
@@ -39,45 +41,42 @@ class WalletForm extends Component {
 
   addExpensesAndClearInputs = () => {
     const { dispatch } = this.props;
-    this.setState({
-      value: '',
-      description: '',
-      currency: DEFAULT_CURRENCY,
-      method: DEFAULT_METHOD,
-      tag: DEFAULT_TAG,
-    });
+    this.setState({ ...initialState });
     dispatch(addExpenses(this.state));
   };
 
   finishedEdit = ({ target: { name } }) => {
     const { dispatch } = this.props;
-    this.setState({
-      value: '',
-      description: '',
-      currency: DEFAULT_CURRENCY,
-      method: DEFAULT_METHOD,
-      tag: DEFAULT_TAG,
-      isEditing: false,
-      id: 0,
-      exchangeRates: '',
-    });
+    this.setState({ ...initialState });
     dispatch(finishedEditExpense(this.state, name));
   };
 
   isEditor = () => {
     const { wallet: { expenses, editor, idToEdit } } = this.props;
     const { isEditing } = this.state;
+
     if (editor && !isEditing) {
       const editingExpense = expenses[idToEdit];
+      const {
+        value,
+        description,
+        currency,
+        method,
+        tag,
+        id,
+        exchangeRates,
+      } = editingExpense;
+
       this.setState({
-        value: editingExpense.value,
-        description: editingExpense.description,
-        currency: editingExpense.currency,
-        method: editingExpense.method,
-        tag: editingExpense.tag,
+        ...initialState,
+        value,
+        description,
+        currency,
+        method,
+        tag,
         isEditing: true,
-        id: editingExpense.id,
-        exchangeRates: editingExpense.exchangeRates,
+        id,
+        exchangeRates,
       });
     }
   };
