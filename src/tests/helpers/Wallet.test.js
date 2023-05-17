@@ -77,19 +77,19 @@ describe('Testes para a página Wallet', () => {
       },
     };
     renderWithRouterAndRedux(<App />, { initialState, initialEntries });
-
+  
     const btnsEdit = screen.getAllByRole('button', { name: /editar/i });
     userEvent.click(btnsEdit[0]);
-
+  
     const valueInput = screen.getByTestId(valueInputt);
     userEvent.type(valueInput, '0');
-
+  
     expect(valueInput).toHaveValue('100');
     const btnFinishedEdit = screen.getByRole('button', { name: /editar despesa/i });
     userEvent.click(btnFinishedEdit);
-
-    expect(screen.getByTestId(valueTotal).innerHTML).toBe('594.14');
-    expect(valueInput.innerHTML).toBe('');
+  
+    expect(screen.getByTestId(valueTotal)).toHaveTextContent('594.14');
+    expect(valueInput).toHaveValue('');
   });
 
   test('Verifica o botao de deletar', () => {

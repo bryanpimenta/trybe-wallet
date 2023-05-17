@@ -8,23 +8,6 @@ export const DELETE_EXPENSE = 'DELETE_EXPENSE';
 export const EDITING_EXPENSE = 'EDITING_EXPENSE';
 export const FINISHED_EDIT_EXPENSE = 'FINISHED_EDIT_EXPENSE';
 
-export const finishedEditExpense = (state, id) => ({
-  type: FINISHED_EDIT_EXPENSE,
-  payload: { state, id },
-  editor: false,
-});
-
-export const editingExpense = (id) => ({
-  type: EDITING_EXPENSE,
-  payload: id,
-  editor: true,
-});
-
-export const deleteExpense = (id) => ({
-  type: DELETE_EXPENSE,
-  payload: id,
-});
-
 export const addEmail = (email) => ({
   type: ADD_EMAIL,
   payload: email,
@@ -43,11 +26,6 @@ export const requestCoinsExpenses = () => ({
   type: REQUEST_COINS_EXPENSES,
 });
 
-export const receiveCoinsExpenses = (state, exchangeRates) => ({
-  type: RECEIVE_COINS_EXPENSES,
-  payload: { state, exchangeRates },
-});
-
 export function fetchCoins() {
   return (dispatch) => {
     dispatch(requestCoinsStarted());
@@ -56,6 +34,28 @@ export function fetchCoins() {
       .then((coins) => dispatch(receiveCoins(coins)));
   };
 }
+
+export const receiveCoinsExpenses = (state, exchangeRates) => ({
+  type: RECEIVE_COINS_EXPENSES,
+  payload: { state, exchangeRates },
+});
+
+export const deleteExpense = (id) => ({
+  type: DELETE_EXPENSE,
+  payload: id,
+});
+
+export const editingExpense = (id) => ({
+  type: EDITING_EXPENSE,
+  payload: id,
+  editor: true,
+});
+
+export const finishedEditExpense = (state, id) => ({
+  type: FINISHED_EDIT_EXPENSE,
+  payload: { state, id },
+  editor: false,
+});
 
 export function addExpenses(state) {
   return (dispatch) => {

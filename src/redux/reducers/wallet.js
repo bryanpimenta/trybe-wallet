@@ -22,11 +22,9 @@ function removeIdExpense(state, action) {
 function addIdInExpenses(state, action) {
   const { expenses } = state;
   const { payload } = action;
-
   delete payload.exchangeRates.USDT;
   const newExpense = payload.state;
   delete newExpense.isEditing;
-
   newExpense.exchangeRates = payload.exchangeRates;
   newExpense.id = expenses.length;
 
