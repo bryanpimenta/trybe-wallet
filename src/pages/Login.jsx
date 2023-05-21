@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addEmail } from '../redux/actions';
+import pig from '../imagens/pig-money-png.png';
 
 class Login extends React.Component {
   state = {
@@ -35,24 +36,35 @@ class Login extends React.Component {
     const { isDisable } = this.state;
 
     return (
-      <div>
-        <input
-          data-testid="email-input"
-          name="email"
-          type="email"
-          placeholder="Digite seu e-mail"
-          onChange={ this.onInputChange }
-        />
+      <section className="container__login">
+        <div id="login__form">
+          <h1 id="title__form">Trybe Wallet</h1>
+          <img src={ pig } alt="foto do porquinho" />
+          <input
+            data-testid="email-input"
+            name="email"
+            type="email"
+            placeholder="Digite seu e-mail"
+            onChange={ this.onInputChange }
+          />
 
-        <input
-          data-testid="password-input"
-          name="password"
-          type="password"
-          placeholder="Digite sua senha"
-          onChange={ this.onInputChange }
-        />
-        <button onClick={ this.submitLogin } disabled={ isDisable }>Entrar</button>
-      </div>
+          <input
+            data-testid="password-input"
+            name="password"
+            type="password"
+            placeholder="Digite sua senha"
+            onChange={ this.onInputChange }
+          />
+
+          <button
+            id="btn__entry"
+            onClick={ this.submitLogin }
+            disabled={ isDisable }
+          >
+            Entrar
+          </button>
+        </div>
+      </section>
     );
   }
 }

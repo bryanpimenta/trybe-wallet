@@ -6,6 +6,9 @@ import { Provider } from 'react-redux';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import store from './redux/store';
+import './styles/general.css';
+import './styles/Login.css';
+import './styles/Wallet.css';
 
 ReactDOM
   .createRoot(document.getElementById('root'))
