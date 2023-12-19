@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #596f62;
+    background-color: #16271d;
 }
 
 #login__form {
@@ -47,15 +47,15 @@ input:focus {
     border: 1.5px solid #ffd6ff;
     box-shadow: 0 0 5px #fff,
                 0 0 1px #c3d898,
-                0 0 5px #c3d898,
-                0 0 15px #c3d898;
+                0 0 10px #c3d898,
+                0 0 10px #c3d898;
 }
 
 #btn__entry {
     margin: 5%;
     width: 25%;
     height: 15%;
-    border: 1px solid #c3d898;
+    border: 1px solid #16271d;
     border-radius: 5%;
     font-size: 15px;
     background-color: #c3d898;
