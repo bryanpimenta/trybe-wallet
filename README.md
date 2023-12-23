@@ -38,3 +38,12 @@ E inicie o projeto:
 $ npm start
 ```
 
+## Testes
+```
+npm run test
+```
+Testes de cobertura
+```
+npm run test-coverage
+```
+
