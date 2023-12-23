@@ -1,8 +1,42 @@
-# TrybeWallet
-Projeto em React de uma carteira de controle de gastos com conversor de moeda, utilizando a API Economia. Ao utilizar essa aplicação, a pessoa usuária é capaz de adicionar, remover e editar um gasto, visualizar uma tabelas com seus gastos e visualizar o total de gastos convertidos para uma moeda de escolha.
+# Project TrybeWallet! 🪙​💸​
+Neste projeto, foi desenvolvida uma carteira de controle de despesas com um conversor de moedas. Ao utilizar esta aplicação, o usuário pode:
 
-## 💻 Visualize este projeto:
-Acesse a página aqui: --em breve--
+- Adicionar, remover e editar uma despesa;
+- Visualizar uma tabela com suas despesas;
+- Visualizar o gasto total convertido para uma moeda de escolha.
 
-## 💡 Habilidades:
-Feito a partir dos conhecimentos de CSS, HTML, JavaScript, JSX, React e React Router Dom, estados globais com Redux, actions assíncronas com Redux-Thunk, Testes com React-Testing-Library, Componentes de Classe, PropTypes, NPM e Requisições via API.
+  
+
+## Sobre o projeto
+
+Este projeto foi desenvolvido com foco em aprender como usar o Redux em uma aplicação React como uma ferramenta de manipulação de estado.
+
+## Tecnologias utilizadas
+  * HTML
+  * CSS
+  * JavaScript
+  * React.js
+  * Redux
+
+
+
+## Como executar o projeto
+
+A implantação da aplicação está disponível aqui, mas se preferir, [aqui]() estão as instruções para executar o projeto:
+```
+$ git clone git@github.com:bryanpimenta/trybe-wallet.git
+```
+Acesse a pasta do repositório que você acabou de clonar:
+```
+$ cd TrybeWallet
+```
+Instale as dependências:
+```
+$ npm install
+```
+E inicie o projeto:
+```
+$ npm start
+```
+
+---
