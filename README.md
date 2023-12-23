@@ -1,10 +1,8 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# TrybeWallet
+Projeto em React de uma carteira de controle de gastos com conversor de moeda, utilizando a API Economia. Ao utilizar essa aplicação, a pessoa usuária é capaz de adicionar, remover e editar um gasto, visualizar uma tabelas com seus gastos e visualizar o total de gastos convertidos para uma moeda de escolha.
+
+💻 Visualize este projeto:
+Acesse a página aqui: --em breve--
+
+💡 Habilidades:
+Feito a partir dos conhecimentos de CSS, HTML, JavaScript, JSX, React e React Router Dom, estados globais com Redux, actions assíncronas com Redux-Thunk, Testes com React-Testing-Library, Componentes de Classe, PropTypes, NPM e Requisições via API.
