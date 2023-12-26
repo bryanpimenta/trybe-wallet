@@ -1,4 +1,4 @@
-# Project TrybeWallet! 🪙​
+# Projeto TrybeWallet 💸​
 Neste projeto, foi desenvolvida uma carteira de controle de despesas com um conversor de moedas. Ao utilizar esta aplicação, o usuário pode:
 
 - Adicionar, remover e editar uma despesa;
