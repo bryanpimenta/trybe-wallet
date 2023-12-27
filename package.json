@@ -2,7 +2,7 @@
   "name": "sd-0x-project-trybewallet",
   "version": "1.0.0",
   "homepage": "https://bryanpimenta.github.io/trybe-wallet",
-  "private": true,
+  "private": false,
   "engines": {
     "node": "16 || 18"
   },
