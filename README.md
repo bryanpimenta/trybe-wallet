@@ -23,19 +23,19 @@ Este projeto foi desenvolvido com foco em aprender como usar o Redux em uma apli
 
 A implantação da aplicação está disponível aqui, mas se preferir, [aqui]() estão as instruções para executar o projeto:
 ```
-$ git clone git@github.com:bryanpimenta/trybe-wallet.git
+git clone git@github.com:bryanpimenta/trybe-wallet.git
 ```
 Acesse a pasta do repositório que você acabou de clonar:
 ```
-$ cd TrybeWallet
+cd TrybeWallet
 ```
 Instale as dependências:
 ```
-$ npm install
+npm install
 ```
 E inicie o projeto:
 ```
-$ npm start
+npm start
 ```
 
 ## Testes
