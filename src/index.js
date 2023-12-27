@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom/cjs/react-router-dom.min';
 import './index.css';
 import { Provider } from 'react-redux';
 import App from './App';
@@ -15,11 +15,12 @@ import './styles/Header.css';
 ReactDOM
   .createRoot(document.getElementById('root'))
   .render(
-    <Provider store={ store }>
-      <BrowserRouter>
+    <HashRouter>
+      <Provider store={ store }>
         <App />
-      </BrowserRouter>
-    </Provider>,
+      </Provider>
+      ,
+    </HashRouter>,
   );
 
 // If you want your app to work offline and load faster, you can change
