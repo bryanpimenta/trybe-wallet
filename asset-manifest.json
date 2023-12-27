@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.d636408a.css",
-    "main.js": "/react-gh-pages/static/js/main.9a8305df.js",
-    "static/media/TrybeWalletBackGround2.png": "/react-gh-pages/static/media/TrybeWalletBackGround2.f0cf3c407724f5516ed1.png",
-    "static/media/TrybeWalletLogo.png": "/react-gh-pages/static/media/TrybeWalletLogo.647cb49ce06129e7c7df.png",
-    "index.html": "/react-gh-pages/index.html",
-    "main.d636408a.css.map": "/react-gh-pages/static/css/main.d636408a.css.map",
-    "main.9a8305df.js.map": "/react-gh-pages/static/js/main.9a8305df.js.map"
+    "main.css": "/trybe-wallet/static/css/main.c90a5c8b.css",
+    "main.js": "/trybe-wallet/static/js/main.77dcb27d.js",
+    "static/media/TrybeWalletBackGround2.png": "/trybe-wallet/static/media/TrybeWalletBackGround2.f0cf3c407724f5516ed1.png",
+    "static/media/TrybeWalletLogo.png": "/trybe-wallet/static/media/TrybeWalletLogo.647cb49ce06129e7c7df.png",
+    "index.html": "/trybe-wallet/index.html",
+    "main.c90a5c8b.css.map": "/trybe-wallet/static/css/main.c90a5c8b.css.map",
+    "main.77dcb27d.js.map": "/trybe-wallet/static/js/main.77dcb27d.js.map"
   },
   "entrypoints": [
-    "static/css/main.d636408a.css",
-    "static/js/main.9a8305df.js"
+    "static/css/main.c90a5c8b.css",
+    "static/js/main.77dcb27d.js"
   ]
 }
