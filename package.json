@@ -1,6 +1,7 @@
 {
   "name": "sd-0x-project-trybewallet",
   "version": "1.0.0",
+  "homepage": "https://bryanpimenta.github.io/trybe-wallet",
   "private": true,
   "engines": {
     "node": "16 || 18"
@@ -21,6 +22,8 @@
     "stylelint-order": "5.0.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "cy": "cypress run",
     "cy:open": "cypress open --e2e --browser chrome",
     "start": "react-scripts start",
@@ -51,6 +54,7 @@
     "@trybe/eslint-config-frontend": "^1.7.1",
     "cypress": "10.11.0",
     "cypress-multi-reporters": "1.6.2",
+    "gh-pages": "^6.1.1",
     "jest-localstorage-mock": "2.4.26",
     "mocha": "10.2.0",
     "mochawesome": "7.1.3",
