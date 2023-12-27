@@ -19,7 +19,6 @@ ReactDOM
       <Provider store={ store }>
         <App />
       </Provider>
-      ,
     </HashRouter>,
   );
 
