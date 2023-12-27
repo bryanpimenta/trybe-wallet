@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { BiEdit } from 'react-icons/bi';
+import { ImBin } from 'react-icons/im';
 import { deleteExpense, editingExpense } from '../redux/actions';
 
 class Table extends Component {
-  deleteAExpense = ({ target: { name } }) => {
+  deleteAExpense = ({ currentTarget }) => {
     const { dispatch } = this.props;
-    dispatch(deleteExpense(name));
+    dispatch(deleteExpense(currentTarget.name));
   };
 
-  editExpense = ({ target: { name } }) => {
+  editExpense = ({ currentTarget }) => {
     const { dispatch } = this.props;
-    dispatch(editingExpense(name));
+    dispatch(editingExpense(currentTarget.name));
   };
 
   render() {
@@ -61,7 +63,7 @@ class Table extends Component {
                   name={ id }
                   onClick={ this.editExpense }
                 >
-                  Editar
+                  <BiEdit />
                 </button>
                 <button
                   data-testid="delete-btn"
@@ -69,7 +71,7 @@ class Table extends Component {
                   name={ id }
                   onClick={ this.deleteAExpense }
                 >
-                  Excluir
+                  <ImBin />
                 </button>
               </td>
             </tr>

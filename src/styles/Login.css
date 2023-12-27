@@ -1,72 +1,79 @@
-.container__login {
-    height: 100%;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background: #00E5D8;
+  }
+  
+  .login__page {
+    background-image: url('../imagens/TrybeWalletBackGround2.png');
+    background-size: cover;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+  }
+  
+  .login__form {
+    align-items: center;
+    align-self: center;
+    background: white;
+    border-radius: 10px;
+    box-shadow: -4px 9px 13px 0 rgba(3, 107, 82, 0.3);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #16271d;
-}
-
-#login__form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 500px;
-    width: 400px;
-    border-radius: 5%;
-    margin: 20% 30% 20%;
-    background-color: #1c3144;
-    box-shadow: 0 0 5px #c3d898,
-                0 0 10px #c3d898,
-                0 0 20px #c3d898;
-    transition: linear 0.2s;
-}
-
-img {
-    width: 150px;
-    margin-bottom: 5%;
-}
-
-input {
-    margin: 5px;
-    width: 60%;
-    height: 10%;
-    border: 1px solid #ffffff;
-    background-color: #ffffff;
-    border-radius: 2px;
-    color: #7c9ee7;
-}
-
-input::placeholder {
-    color: #7c9ee7;
-}
-
-input:focus {
-    outline: none;
-    border: 1.5px solid #ffd6ff;
-    box-shadow: 0 0 5px #fff,
-                0 0 1px #c3d898,
-                0 0 10px #c3d898,
-                0 0 10px #c3d898;
-}
-
-#btn__entry {
-    margin: 5%;
-    width: 25%;
-    height: 15%;
-    border: 1px solid #16271d;
-    border-radius: 5%;
-    font-size: 15px;
-    background-color: #c3d898;
-}
-
-#title__form, #btn__entry {
-    font-family: myFirstFont;
-    font-weight: bold;
-    color: #f6fff8;
-}
-
-#title__form {
-    font-size: 40px ;
-}
+    flex-shrink: 0;
+    height: 356px;
+    width: 525px;
+  }
+  
+  .login__form img {
+    height: 150px;
+    width: 300px;
+  }
+  
+  .login__form input {
+    all: unset;
+    background: white;
+    border: 1px solid #495CD9;
+    border-radius: 5px;
+    box-sizing: border-box;
+    cursor: text;
+    font-family: Epilogue, sans-serif;
+    font-size: 14px;
+    height: 40px;
+    padding-left: 15px;
+    width: 330px;
+  }
+  
+  .login__form input::placeholder {
+    color: #495CD9;
+    font-family: Epilogue, sans-serif;
+    font-size: 14px;
+  }
+  
+  .email__label input {
+    margin-top: 10px;
+  }
+  
+  .password__label input {
+    margin-top: 10px;
+  }
+  
+  .login__form button {
+    background: #495CD9;
+    border: 1px solid #495CD9;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-family: Epilogue, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    height: 40px;
+    margin-top: 10px;
+    text-align: center;
+    width: 330px;
+  }
+  

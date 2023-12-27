@@ -85,61 +85,75 @@ class WalletForm extends Component {
     const { wallet: { currencies, editor, idToEdit } } = this.props;
     const { value, description, currency, method, tag } = this.state;
     return (
-      <form>
+      <form className="expense__form">
+        <div className="bg__grey">
+          <label className="description__label">
+            Descrição
+            <input
+              name="description"
+              data-testid="description-input"
+              onChange={ this.onInputChange }
+              value={ description }
+            />
+          </label>
 
-        <label htmlFor="value">Despesa: </label>
-        <input
-          name="value"
-          data-testid="value-input"
-          onChange={ this.onInputChange }
-          value={ value }
-        />
+          <label className="tag__label">
+            Categoria
+            <select
+              name="tag"
+              data-testid="tag-input"
+              onChange={ this.onInputChange }
+              value={ tag }
+            >
+              <option value="Alimentação">Alimentação</option>
+              <option value="Lazer">Lazer</option>
+              <option value="Trabalho">Trabalho</option>
+              <option value="Transporte">Transporte</option>
+              <option value="Saúde">Saúde</option>
+            </select>
+          </label>
 
-        <label htmlFor="description">Descrição: </label>
-        <input
-          name="description"
-          data-testid="description-input"
-          onChange={ this.onInputChange }
-          value={ description }
-        />
+          <div className="division" />
+          <br />
 
-        <label htmlFor="currency">Moeda: </label>
-        <select
-          name="currency"
-          data-testid="currency-input"
-          onChange={ this.onInputChange }
-          value={ currency }
-        >
-          {currencies.map((coin) => (
-            <option key={ coin } value={ coin }>{ coin }</option>
-          ))}
-        </select>
+          <label className="value__label">
+            Despesa
+            <input
+              name="value"
+              data-testid="value-input"
+              onChange={ this.onInputChange }
+              value={ value }
+            />
+          </label>
 
-        <label htmlFor="method">Método de pagamento: </label>
-        <select
-          name="method"
-          data-testid="method-input"
-          onChange={ this.onInputChange }
-          value={ method }
-        >
-          <option value="Dinheiro">Dinheiro</option>
-          <option value="Cartão de crédito">Cartão de crédito</option>
-          <option value="Cartão de débito">Cartão de débito</option>
-        </select>
+          <label className="method__label">
+            Método de pagamento
+            <select
+              name="method"
+              data-testid="method-input"
+              onChange={ this.onInputChange }
+              value={ method }
+            >
+              <option value="Dinheiro">Dinheiro</option>
+              <option value="Cartão de crédito">Cartão de crédito</option>
+              <option value="Cartão de débito">Cartão de débito</option>
+            </select>
+          </label>
 
-        <label htmlFor="tag">Categoria: </label>
-        <select
-          name="tag"
-          data-testid="tag-input"
-          onChange={ this.onInputChange }
-          value={ tag }
-        >
-          <option value="Alimentação">Alimentação</option>
-          <option value="Lazer">Lazer</option>
-          <option value="Trabalho">Trabalho</option>
-          <option value="Transporte">Transporte</option>
-          <option value="Saúde">Saúde</option>
-        </select>
+          <label className="currency__label">
+            Moeda
+            <select
+              name="currency"
+              data-testid="currency-input"
+              onChange={ this.onInputChange }
+              value={ currency }
+            >
+              {currencies.map((coin) => (
+                <option key={ coin } value={ coin }>{ coin }</option>
+              ))}
+            </select>
+          </label>
+        </div>
 
         { editor ? (
           <button

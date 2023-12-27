@@ -1,0 +1,54 @@
+table {
+    background: #495CD9;
+    border-radius: 10px;
+    box-shadow: -4px 9px 13px 0 rgba(3, 107, 82, 0.3);
+    min-height: 464px;
+    padding: 290px 60px 100px;
+    position: relative;
+    top: -229px;
+    width: 1155px;
+}
+
+tr {
+    height: 55px;
+}
+
+th {
+    color: white;
+    font-family: Epilogue, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    height: 26.6px;
+    line-height: 13px;
+    text-align: center;
+    width: 110.933px;
+}
+
+td {
+    color: #45D1F2;
+    font-family: Epilogue, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 26.6px;
+    line-height: 13px;
+    text-align: center;
+    width: 110.933px;
+}
+
+table button {
+    all: unset;
+    cursor: pointer;
+}
+
+table button svg {
+    height: 18px;
+    width: 18px;
+}
+
+table button:nth-child(1) svg {
+    margin-right: 10px;
+}
+
+table button:nth-child(2) svg {
+    color: rgba(223, 60, 109, 1);
+}

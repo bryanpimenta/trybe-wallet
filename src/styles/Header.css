@@ -1,0 +1,47 @@
+header {
+    align-items: center;
+    display: flex;
+    height: 158px;
+    justify-content: space-evenly;
+}
+
+header img {
+    flex-shrink: 0;
+    height: 100px;
+    width: 200px;
+}
+
+.email__field{
+    align-items: center;
+    color: #45D1F2;
+    display: flex;
+    font-family: Epilogue, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.email__field svg {
+    height: 25.21px;
+    margin-right: 5px;
+    width: 25.248px;
+}
+
+.total__field {
+    align-items: center;
+    color: #495CD9;
+    display: flex;
+    font-family: Epilogue, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.total__field svg {
+    height: 28.705px;
+    margin-right: 5px;
+    width: 28.71px;
+}
+
+.total__field span {
+    font-weight: 400;
+    margin-left: 3px;
+}
